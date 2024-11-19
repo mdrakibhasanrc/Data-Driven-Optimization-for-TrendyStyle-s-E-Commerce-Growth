@@ -1,10 +1,13 @@
 ### Project Title: Data-Driven Optimization for TrendyStyle's E-Commerce Growth
 
 ### Project Overview:
+
 Company: TrendyStyle
+
 Industry: E-commerce (Fashion & Apparel)
 
-### Project Focus: Optimizing the website’s conversion rate by analyzing customer behavior, identifying key drop-off points, and implementing data-driven solutions to enhance the user experience.
+### Project Focus: 
+Optimizing the website’s conversion rate by analyzing customer behavior, identifying key drop-off points, and implementing data-driven solutions to enhance the user experience.
 
 ### Tools and Technologies:
 
