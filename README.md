@@ -35,6 +35,7 @@ Analyze GA4 data using BigQuery to identify key drop-off points in the user jour
 ##### Device Wise Analysis:
 
 ✅ Device Category Performance: Identify Conversion Rate Differences by Device:
+
 This query provides insights into how users are converting across different devices and platforms (desktop, mobile, tablet), helping you determine if certain devices are underperforming.
 ```sql
 SELECT  
@@ -53,6 +54,7 @@ Report:
 ![Screenshot_1](https://github.com/user-attachments/assets/c9e0f9cf-5fc3-4184-954a-ff59d326bae9)
 
 Insight: 
+
 ** Mobile users have a higher conversion rate (1.7) than desktop (1.6), suggesting better purchase likelihood on mobile.
 
 ** Desktop users contribute more revenue ($208,815) and purchases (13,182 items) than mobile ($146,768 and 9,200 items).
@@ -61,6 +63,7 @@ Insight:
 
 
 ✅ Cart Abandonment rate and checkout abandonment rate by Device Category:
+
 To improve Conversion Rate Optimization (CRO), especially around Average Order Value (AOV), Cart Abandonment, and Checkout Abandonment, understanding device-specific behavior is key. Optimizing these areas across different devices can significantly impact overall conversion rates. Below are important queries to identify potential problems in these areas using GA4 data in BigQuery.
 ```sql
 with flat_data as (
@@ -98,3 +101,39 @@ Insight:
 ** Mobile vs. Tablet: Mobile has lower abandonment rates and higher purchases (2,355 vs. 111), while tablet users have the highest abandonment rates.
 
 ** Desktop vs. Tablet: Desktop users convert much better (3,226 vs. 111), with tablet users showing the highest abandonment rates and lowest purchases.
+
+
+✅ Average Order Value (AOV) by Device Category:
+
+This query calculates the Average Order Value (AOV) for each device category. By understanding how much users spend on average across different devices, you can identify if certain devices are underperforming in terms of revenue generation.
+```sql
+with flat_data as (
+  SELECT  
+     device.category as device_category,
+     count(distinct user_pseudo_id) as total_users,
+     sum(ecommerce.purchase_revenue) as total_sales
+FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*` 
+where event_name ='purchase'
+group by device_category
+)
+
+select
+   device_category,
+   total_users,
+   total_sales,
+   round(safe_divide(total_sales,total_users),2) as average_order_value
+from  flat_data
+group by device_category,total_users,total_sales;
+
+```
+Report:
+![Screenshot_3](https://github.com/user-attachments/assets/faa7da23-adce-4d18-9862-3d76dd9f74e4)
+
+Insight: 
+
+** Desktop users have the highest total sales ($208,815) and AOV ($82.18), indicating larger purchases.
+
+** Mobile users contribute significant sales ($146,768) with a slightly lower AOV ($79.29), suggesting smaller purchases.
+
+** Tablet users have the lowest total sales ($6,582) and AOV ($67.86), indicating a need for optimization.
+
