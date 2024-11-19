@@ -192,3 +192,51 @@ Summary & Insight:
 
       III) Tablet users have the lowest total sales ($6,582) and AOV ($67.86), indicating a need for optimization.
 
+
+
+
+#### Phase 3: Microsoft Clarity Data Analysis and Summary:
+
+##### 1. Homepage:
+   
+Insight: Users engage most with the top banner and featured products, but many drop off quickly (45% bounce rate).
+
+Data: Heatmaps show concentrated clicks on top navigation, banner images, and first few products, but users don’t scroll past the fold.
+
+Recommendation: Optimize the first section with more engaging content and clear calls-to-action (CTAs) to reduce bounce rate. Consider adding trust signals (reviews, secure payment icons) higher up on the page.
+
+
+##### 2. Category Page
+
+Insight: Users are not engaging with filters and sorting options (only 12% interaction).
+
+Data: Heatmaps reveal that users mostly scan products but ignore sorting/filter options, leading to frustration on large product lists.
+
+Recommendation: Make filters more prominent and user-friendly. Offer quick product previews or better category navigation to encourage deeper exploration.
+
+
+##### 3. Product Page:
+
+Insight: Product images and descriptions are the primary engagement points, but only 5% of users click on reviews or ratings.
+
+Data: Session recordings show users engaging with the product image gallery, then quickly exiting without interacting with reviews.
+
+Recommendation: Make product reviews more visible and accessible. Add "Frequently Bought Together" or similar cross-sell recommendations to boost user interaction and confidence.
+
+
+##### 4. Checkout Page:
+
+Insight: High drop-off rate (55%) during the checkout process, especially at the payment stage.
+
+Data: Session recordings show users hesitating when entering payment details or when unexpected shipping costs are revealed.
+
+Recommendation: Simplify the checkout flow, highlight cost transparency earlier (shipping fees, taxes), and introduce trust signals like secure checkout badges.
+
+
+##### 5. Thank You Page:
+
+Insight: Low engagement on the Thank You page with minimal clicks to share on social or review the product.
+
+Data: Heatmaps show a lack of interaction with social sharing buttons or post-purchase suggestions.
+
+Recommendation: Add incentives for sharing (discounts for referrals) or encourage users to leave reviews. Offer recommendations for related products or loyalty program sign-ups to increase engagement.
