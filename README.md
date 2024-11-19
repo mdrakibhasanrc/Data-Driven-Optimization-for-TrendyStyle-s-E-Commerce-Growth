@@ -68,6 +68,7 @@ Insight:
 ✅ Cart Abandonment rate and checkout abandonment rate by Device Category:
 
 To improve Conversion Rate Optimization (CRO), especially around Average Order Value (AOV), Cart Abandonment, and Checkout Abandonment, understanding device-specific behavior is key. Optimizing these areas across different devices can significantly impact overall conversion rates. Below are important queries to identify potential problems in these areas using GA4 data in BigQuery.
+
 ```sql
 with flat_data as (
   SELECT  
@@ -93,10 +94,12 @@ from  flat_data
 group by device_category,total_users;
 
 ```
+
 Report:
 
 
 ![Screenshot_2](https://github.com/user-attachments/assets/1458ec8b-457c-4b56-93d8-63148a785916)
+
 
 Insight: 
 
@@ -112,6 +115,7 @@ Insight:
 ✅ Average Order Value (AOV) by Device Category:
 
 This query calculates the Average Order Value (AOV) for each device category. By understanding how much users spend on average across different devices, you can identify if certain devices are underperforming in terms of revenue generation.
+
 ```sql
 with flat_data as (
   SELECT  
@@ -134,6 +138,8 @@ group by device_category,total_users,total_sales;
 ```
 
 Report:
+
+
 ![Screenshot_3](https://github.com/user-attachments/assets/faa7da23-adce-4d18-9862-3d76dd9f74e4)
 
 
