@@ -21,9 +21,7 @@ Optimizing the website’s conversion rate by analyzing customer behavior, ident
 
 ### Project Phases & Approach:
 
-#### Phase 1: Data Collection & Setup:
-
-Integrating BigQuery with GA4:
+#### Phase 1: Data Collection & Setup ( Integrate GA4 & Bigquery ):
 
 Configure GA4 to export data into BigQuery for deeper analysis. This allows you to query and analyze granular data, which is not always available directly in GA4.
 Set up automated queries to pull in data such as product views, revenue, and user demographics.
@@ -32,7 +30,7 @@ Set up automated queries to pull in data such as product views, revenue, and use
 
 Analyze GA4 data using BigQuery to identify key drop-off points in the user journey, such as high abandonment during checkout, and segment users by behavior, device, and location to find opportunities for optimization. Measure conversion rates at each funnel stage in BigQuery to pinpoint where users drop off and uncover potential barriers to conversion.
 
-##### Overall Site Performance Important Metrics:
+#### Overall Site Performance Important Metrics:
 
 ```sql
 with flat_data as (
