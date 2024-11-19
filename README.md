@@ -195,7 +195,7 @@ Summary & Insight:
 
 
 
-#### Phase 3: Microsoft Clarity Data Analysis and Summary:
+#### Phase 3: User Behaviour Data Analysis using Microsoft Clarity :
 
 ##### 1. Homepage:
    
