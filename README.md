@@ -11,13 +11,13 @@ Optimizing the website’s conversion rate by analyzing customer behavior, ident
 
 ### Tools and Technologies:
 
-Google Analytics 4 (GA4): For tracking user behavior, events, and conversions across the website and app.
+        I) Google Analytics 4 (GA4): For tracking user behavior, events, and conversions across the website and app.
 
-BigQuery: To manage, query, and analyze large datasets collected from GA4 and other sources.
+       II) BigQuery: To manage, query, and analyze large datasets collected from GA4 and other sources.
 
-Looker Studio: For creating visual reports and dashboards to monitor and analyze key performance indicators (KPIs).
+       III) Looker Studio: For creating visual reports and dashboards to monitor and analyze key performance indicators (KPIs).
 
-Microsoft Clarity: To analyze user sessions, identify friction points, and optimize the website’s user interface (UI).
+       IV) Microsoft Clarity: To analyze user sessions, identify friction points, and optimize the website’s user interface (UI).
 
 ### Project Phases & Approach:
 
@@ -32,9 +32,52 @@ Set up automated queries to pull in data such as product views, revenue, and use
 
 Analyze GA4 data using BigQuery to identify key drop-off points in the user journey, such as high abandonment during checkout, and segment users by behavior, device, and location to find opportunities for optimization. Measure conversion rates at each funnel stage in BigQuery to pinpoint where users drop off and uncover potential barriers to conversion.
 
-##### Device Wise Analysis:
+##### Overall Site Performance Important Metrics:
 
-✅ Device Category Performance: Identify Conversion Rate Differences by Device:
+```sql
+with flat_data as (
+  SELECT  
+     user_pseudo_id,
+     sum(ecommerce.purchase_revenue) as total_revenue,
+     countif(event_name='page_view') as page_view,
+     countif(event_name='add_to_cart') as add_to_cart,
+     countif(event_name='begin_checkout') as begin_checkout,
+     countif(event_name='purchase') as purchase
+FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*` 
+where event_name in ('page_view','add_to_cart','begin_checkout','purchase')
+group by user_pseudo_id
+)
+
+select
+    count(distinct user_pseudo_id) as total_user,
+    sum(page_view) as total_page_view,
+    sum(total_revenue) as total_sales,
+    round(safe_divide(sum(add_to_cart)-sum(purchase),sum(add_to_cart))*100,2) as cart_abandonment_rate,
+    round(safe_divide(sum(begin_checkout)-sum(purchase),sum(begin_checkout))*100,2) as checkout_abandonment_rate,
+    safe_divide(sum(total_revenue),sum(purchase)) as average_order_value,
+    round(safe_divide(sum(purchase),count(distinct user_pseudo_id))*100,2) as conversion_rate
+from flat_data;
+
+```
+
+Report:
+![Screenshot_4](https://github.com/user-attachments/assets/e804542e-f42f-4473-8c48-886fae5e3dcb)
+
+
+Summary Insights:
+
+       I) High abandonment at both the cart (90.28%) and checkout (85.31%) stages points to potential friction in the purchase journey. Addressing issues like user experience, ease of 
+          checkout, or offering incentives could reduce abandonment rates and improve conversions.
+
+      II) Conversion rate (2.11%) is low, which might be expected given the high abandonment rates, but it presents a clear opportunity for optimization in the conversion process (e.g., 
+         optimizing for mobile users, improving site speed, or offering incentives for completing purchases).
+
+      III) The Average Order Value of $63.63 suggests that, while revenue is being generated, higher AOV could be achievable through strategies like cross-selling, up-selling, or 
+            introducing higher-value products.
+
+#### Device Wise Analysis:
+
+##### ✅ Device Category Performance: Identify Conversion Rate Differences by Device:
 
 This query provides insights into how users are converting across different devices and platforms (desktop, mobile, tablet), helping you determine if certain devices are underperforming.
 ```sql
@@ -54,18 +97,18 @@ Report:
 
 ![Screenshot_1](https://github.com/user-attachments/assets/c9e0f9cf-5fc3-4184-954a-ff59d326bae9)
 
-Insight: 
+Summary & Insights: 
 
-** Mobile users have a higher conversion rate (1.7) than desktop (1.6), suggesting better purchase likelihood on mobile.
+        I) Mobile users have a higher conversion rate (1.7) than desktop (1.6), suggesting better purchase likelihood on mobile.
+ 
+        II) Desktop users contribute more revenue ($208,815) and purchases (13,182 items) than mobile ($146,768 and 9,200 items).
 
-** Desktop users contribute more revenue ($208,815) and purchases (13,182 items) than mobile ($146,768 and 9,200 items).
-
-** Tablet users underperform with the lowest revenue ($6,582) and purchases (111), indicating a need for optimization.
-
-
+        II) Tablet users underperform with the lowest revenue ($6,582) and purchases (111), indicating a need for optimization.
 
 
-✅ Cart Abandonment rate and checkout abandonment rate by Device Category:
+
+
+##### ✅ Cart Abandonment rate and checkout abandonment rate by Device Category:
 
 To improve Conversion Rate Optimization (CRO), especially around Average Order Value (AOV), Cart Abandonment, and Checkout Abandonment, understanding device-specific behavior is key. Optimizing these areas across different devices can significantly impact overall conversion rates. Below are important queries to identify potential problems in these areas using GA4 data in BigQuery.
 
@@ -101,18 +144,18 @@ Report:
 ![Screenshot_2](https://github.com/user-attachments/assets/1458ec8b-457c-4b56-93d8-63148a785916)
 
 
-Insight: 
+Summary & Insight: 
 
-** Mobile vs. Desktop: Both have similar abandonment rates, but desktop users convert better, with more total purchases (3,226 vs. 2,355).
+      I) Mobile vs. Desktop: Both have similar abandonment rates, but desktop users convert better, with more total purchases (3,226 vs. 2,355).
 
-** Mobile vs. Tablet: Mobile has lower abandonment rates and higher purchases (2,355 vs. 111), while tablet users have the highest abandonment rates.
+     II) Mobile vs. Tablet: Mobile has lower abandonment rates and higher purchases (2,355 vs. 111), while tablet users have the highest abandonment rates.
 
-** Desktop vs. Tablet: Desktop users convert much better (3,226 vs. 111), with tablet users showing the highest abandonment rates and lowest purchases.
-
-
+     III) Desktop vs. Tablet: Desktop users convert much better (3,226 vs. 111), with tablet users showing the highest abandonment rates and lowest purchases.
 
 
-✅ Average Order Value (AOV) by Device Category:
+
+
+##### ✅ Average Order Value (AOV) by Device Category:
 
 This query calculates the Average Order Value (AOV) for each device category. By understanding how much users spend on average across different devices, you can identify if certain devices are underperforming in terms of revenue generation.
 
@@ -143,11 +186,11 @@ Report:
 ![Screenshot_3](https://github.com/user-attachments/assets/faa7da23-adce-4d18-9862-3d76dd9f74e4)
 
 
-Insight: 
+Summary & Insight: 
 
-** Desktop users have the highest total sales ($208,815) and AOV ($82.18), indicating larger purchases.
+       I) Desktop users have the highest total sales ($208,815) and AOV ($82.18), indicating larger purchases.
 
-** Mobile users contribute significant sales ($146,768) with a slightly lower AOV ($79.29), suggesting smaller purchases.
+      II) Mobile users contribute significant sales ($146,768) with a slightly lower AOV ($79.29), suggesting smaller purchases.
 
-** Tablet users have the lowest total sales ($6,582) and AOV ($67.86), indicating a need for optimization.
+      III) Tablet users have the lowest total sales ($6,582) and AOV ($67.86), indicating a need for optimization.
 
