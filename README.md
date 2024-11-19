@@ -51,6 +51,7 @@ GROUP BY device_category
 ORDER BY conversion_rate DESC;
 ```
 Report:
+
 ![Screenshot_1](https://github.com/user-attachments/assets/c9e0f9cf-5fc3-4184-954a-ff59d326bae9)
 
 Insight: 
@@ -60,6 +61,7 @@ Insight:
 ** Desktop users contribute more revenue ($208,815) and purchases (13,182 items) than mobile ($146,768 and 9,200 items).
 
 ** Tablet users underperform with the lowest revenue ($6,582) and purchases (111), indicating a need for optimization.
+
 
 
 ✅ Cart Abandonment rate and checkout abandonment rate by Device Category:
@@ -101,6 +103,7 @@ Insight:
 ** Mobile vs. Tablet: Mobile has lower abandonment rates and higher purchases (2,355 vs. 111), while tablet users have the highest abandonment rates.
 
 ** Desktop vs. Tablet: Desktop users convert much better (3,226 vs. 111), with tablet users showing the highest abandonment rates and lowest purchases.
+
 
 
 ✅ Average Order Value (AOV) by Device Category:
