@@ -37,7 +37,9 @@ Set up automated queries to pull in data such as product views, revenue, and use
 
 ### Phase 2: Data Analysis & Insights:
 
-Analyze GA4 data using BigQuery to identify key drop-off points in the user journey, such as high abandonment during checkout, and segment users by behavior, device, and location to find opportunities for optimization. Measure conversion rates at each funnel stage in BigQuery to pinpoint where users drop off and uncover potential barriers to conversion.
+Analyze GA4 data using BigQuery to identify key drop-off points in the user journey, such as high abandonment 
+during checkout, and segment users by behavior, device, and location to find opportunities for optimization.
+Measure conversion rates at each funnel stage in BigQuery to pinpoint where users drop off and uncover potential barriers to conversion.
 
 #### Overall Site Performance Important Metrics:
 
@@ -74,20 +76,24 @@ Report:
 
 Summary Insights:
 
-       I) High abandonment at both the cart (90.28%) and checkout (85.31%) stages points to potential friction in the purchase journey. Addressing issues like user experience, ease of 
-          checkout, or offering incentives could reduce abandonment rates and improve conversions.
+       I) High abandonment at both the cart (90.28%) and checkout (85.31%) stages points to potential 
+       friction in the purchase journey. Addressing issues like user experience, ease of 
+       checkout, or offering incentives could reduce abandonment rates and improve conversions.
 
-      II) Conversion rate (2.11%) is low, which might be expected given the high abandonment rates, but it presents a clear opportunity for optimization in the conversion process (e.g., 
-         optimizing for mobile users, improving site speed, or offering incentives for completing purchases).
+      II) Conversion rate (2.11%) is low, which might be expected given the high abandonment rates, 
+      but it presents a clear opportunity for optimization in the conversion process
+      (e.g.,  ptimizing for mobile users, improving site speed, or offering incentives for completing purchases).
 
-      III) The Average Order Value of $63.63 suggests that, while revenue is being generated, higher AOV could be achievable through strategies like cross-selling, up-selling, or 
-            introducing higher-value products.
+      III) The Average Order Value of $63.63 suggests that, while revenue is being generated,
+      higher AOV could be achievable through strategies like cross-selling, up-selling, or 
+       introducing higher-value products.
 
 #### Device Wise Analysis:
 
 ##### ✅ Device Category Performance: Identify Conversion Rate Differences by Device:
 
-This query provides insights into how users are converting across different devices and platforms (desktop, mobile, tablet), helping you determine if certain devices are underperforming.
+This query provides insights into how users are converting across different devices and
+platforms (desktop, mobile, tablet), helping you determine if certain devices are underperforming.
 ```sql
 SELECT  
     device.category AS device_category,
@@ -118,7 +124,10 @@ Summary & Insights:
 
 ##### ✅ Cart Abandonment rate and checkout abandonment rate by Device Category:
 
-To improve Conversion Rate Optimization (CRO), especially around Average Order Value (AOV), Cart Abandonment, and Checkout Abandonment, understanding device-specific behavior is key. Optimizing these areas across different devices can significantly impact overall conversion rates. Below are important queries to identify potential problems in these areas using GA4 data in BigQuery.
+To improve Conversion Rate Optimization (CRO), especially around Average Order Value (AOV), Cart Abandonment, 
+and Checkout Abandonment, understanding device-specific behavior is key. Optimizing these areas across different
+devices can significantly impact overall conversion rates. Below are important queries to identify potential 
+problems in these areas using GA4 data in BigQuery.
 
 ```sql
 with flat_data as (
@@ -165,7 +174,8 @@ Summary & Insight:
 
 ##### ✅ Average Order Value (AOV) by Device Category:
 
-This query calculates the Average Order Value (AOV) for each device category. By understanding how much users spend on average across different devices, you can identify if certain devices are underperforming in terms of revenue generation.
+This query calculates the Average Order Value (AOV) for each device category. By understanding how much users spend
+on average across different devices, you can identify if certain devices are underperforming in terms of revenue generation.
 
 ```sql
 with flat_data as (
@@ -223,47 +233,55 @@ I have successfully added Microsoft Clarity and set it up on your website. This 
 
 #### 1. Homepage Check:
    
-Insight: Users engage most with the top banner and featured products, but many drop off quickly (45% bounce rate).
-
-Data: Heatmaps show concentrated clicks on top navigation, banner images, and first few products, but users don’t scroll past the fold.
-
-Recommendation: Optimize the first section with more engaging content and clear calls-to-action (CTAs) to reduce bounce rate. Consider adding trust signals (reviews, secure payment icons) higher up on the page.
+        Insight: Users engage most with the top banner and featured products,
+        but many drop off quickly (45% bounce rate).
+        
+        Data: Heatmaps show concentrated clicks on top navigation, banner images, 
+        and first few products, but users don’t scroll past the fold.
+        
+        Recommendation: Optimize the first section with more engaging content and clear calls-to-action (CTAs) 
+        to reduce bounce rate. Consider adding trust signals (reviews, secure payment icons) higher up on the page.
 
 
 #### 2. Category Page Check:
 
-Insight: Users are not engaging with filters and sorting options (only 12% interaction).
-
-Data: Heatmaps reveal that users mostly scan products but ignore sorting/filter options, leading to frustration on large product lists.
-
-Recommendation: Make filters more prominent and user-friendly. Offer quick product previews or better category navigation to encourage deeper exploration.
+        Insight: Users are not engaging with filters and sorting options (only 12% interaction).
+        
+        Data: Heatmaps reveal that users mostly scan products but ignore sorting/filter options, leading to frustration on large product lists.
+        
+        Recommendation: Make filters more prominent and user-friendly. Offer quick product previews or 
+        better category navigation to encourage deeper exploration.
 
 
 #### 3. Product Page Check:
 
-Insight: Product images and descriptions are the primary engagement points, but only 5% of users click on reviews or ratings.
-
-Data: Session recordings show users engaging with the product image gallery, then quickly exiting without interacting with reviews.
-
-Recommendation: Make product reviews more visible and accessible. Add "Frequently Bought Together" or similar cross-sell recommendations to boost user interaction and confidence.
+        Insight: Product images and descriptions are the primary engagement points, but only 5% of users click on reviews or ratings.
+        
+        Data: Session recordings show users engaging with the product image gallery, then quickly exiting without interacting with reviews.
+        
+        Recommendation: Make product reviews more visible and accessible. Add "Frequently Bought Together" 
+        or similar cross-sell recommendations to boost user interaction and confidence.
 
 
 #### 4. Checkout Page Check:
 
-Insight: High drop-off rate (55%) during the checkout process, especially at the payment stage.
-
-Data: Session recordings show users hesitating when entering payment details or when unexpected shipping costs are revealed.
-
-Recommendation: Simplify the checkout flow, highlight cost transparency earlier (shipping fees, taxes), and introduce trust signals like secure checkout badges.
+        Insight: High drop-off rate (55%) during the checkout process, especially at the payment stage.
+        
+        Data: Session recordings show users hesitating when entering payment details or when unexpected shipping costs are revealed.
+        
+        Recommendation: Simplify the checkout flow, highlight cost transparency earlier
+        (shipping fees, taxes), and introduce trust signals like secure checkout badges.
 
 
 #### 5. Thank You Page Check:
 
-Insight: Low engagement on the Thank You page with minimal clicks to share on social or review the product.
-
-Data: Heatmaps show a lack of interaction with social sharing buttons or post-purchase suggestions.
-
-Recommendation: Add incentives for sharing (discounts for referrals) or encourage users to leave reviews. Offer recommendations for related products or loyalty program sign-ups to increase engagement.
+        Insight: Low engagement on the Thank You page with minimal clicks to share on social or review the product.
+        
+        Data: Heatmaps show a lack of interaction with social sharing buttons or post-purchase suggestions.
+        
+        Recommendation: Add incentives for sharing (discounts for referrals) or encourage users to leave reviews. 
+        Offer recommendations for related products or loyalty program sign-ups 
+       to increase engagement.
 
 
 
@@ -273,65 +291,67 @@ Recommendation: Add incentives for sharing (discounts for referrals) or encourag
 
 ## Phase 5: Strategy and Recommendations Base Analysis for Optimizing TrendyStyle's E-Commerce Growth :
 
-                I) Enhance CTAs: Make primary calls-to-action (e.g., "Shop Now," "Browse Collections") more prominent across the 
-                   homepage and product pages.
+          I) Enhance CTAs: Make primary calls-to-action (e.g., "Shop Now," "Browse Collections") more prominent across the 
+             homepage and product pages.
                 
-              II) Optimize Above-the-Fold Content: Improve first impressions by making the content engaging, relevant, and easy to 
-                navigate.
+         II) Optimize Above-the-Fold Content: Improve first impressions by making the content engaging, relevant, and easy to 
+             navigate.
                 
-              III)  Simplify the Checkout Process: Reduce the number of steps in the checkout flow and add a guest checkout option to 
-                minimize friction.
+        III)  Simplify the Checkout Process: Reduce the number of steps in the checkout flow and add a guest checkout option to 
+            minimize friction.
                 
-              IV) Improve Mobile Experience: Ensure the site is fully optimized for mobile users with fast load times, responsive 
-                  design, and simplified navigation.
+        IV) Improve Mobile Experience: Ensure the site is fully optimized for mobile users with fast load times, responsive 
+            design, and simplified navigation.
                    
-               V)  Make Filters More Visible: Position filters and sorting options prominently on category pages to enhance product 
-                discovery and user experience.
+        V)  Make Filters More Visible: Position filters and sorting options prominently on category pages to enhance product 
+            discovery and user experience.
                 
-              VI) Highlight Product Reviews: Move product reviews higher on the product page to improve visibility and trust.
+        VI) Highlight Product Reviews: Move product reviews higher on the product page to improve visibility and trust.
                 
-              VII) Cross-Sell & Upsell: Add "Frequently Bought Together" or "Related Products" sections on product pages to increase 
+        VII) Cross-Sell & Upsell: Add "Frequently Bought Together" or "Related Products" sections on product pages to increase 
                   average order value (AOV).
-                
-              Viii) Improve Cost Transparency in Checkout: Display shipping fees, taxes, and total costs earlier in the checkout 
+                 
+        Viii) Improve Cost Transparency in Checkout: Display shipping fees, taxes, and total costs earlier in the checkout 
                     process to reduce surprises.
                 
-              IX) Encourage Social Sharing: Offer discounts or loyalty points for sharing purchases on social media to increase 
-                  visibility and engagement.
+        IX) Encourage Social Sharing: Offer discounts or loyalty points for sharing purchases on social media to increase 
+            visibility and engagement.
                 
-               X) Retarget Abandoned Carts: Use email and retargeting ads to bring back users who abandoned their cart, offering 
-                incentives like discounts to complete the purchase.
+        X) Retarget Abandoned Carts: Use email and retargeting ads to bring back users who abandoned their cart, offering 
+            incentives like discounts to complete the purchase.
                 
-              Xi) Implement Trust Signals: Display secure payment icons and customer reviews on product pages to build trust and reduce 
-                hesitation.
+       Xi) Implement Trust Signals: Display secure payment icons and customer reviews on product pages to build trust and reduce 
+        hesitation.
                 
-               Xii) Offer Free Shipping or Discounts: Provide free shipping or promotional discounts for first-time buyers or on orders 
-                above a certain amount to encourage purchases.
+       Xii) Offer Free Shipping or Discounts: Provide free shipping or promotional discounts for first-time buyers or on orders 
+           above a certain amount to encourage purchases.
                 
-              Xiii) Optimize Product Descriptions: Enhance product descriptions with detailed, clear, and compelling information to 
-                   help  customers make informed decisions.
+       Xiii) Optimize Product Descriptions: Enhance product descriptions with detailed, clear, and compelling information
+            to help  customers make informed decisions.
                 
-               xiv) Personalize User Experience: Use data to personalize recommendations based on browsing and purchasing history to 
-                increase conversions.
+        xiv) Personalize User Experience: Use data to personalize recommendations based on browsing and purchasing 
+            history to   increase conversions.
                 
-               Xv) Improve Site Speed: Regularly test and optimize site speed, as slow load times can lead to high bounce rates and cart 
-                  abandonment.
+        Xv) Improve Site Speed: Regularly test and optimize site speed, as slow load times can
+            lead to high bounce rates and cart abandonment.
                 
-              Xvi)  Use Exit-Intent Popups: Deploy exit-intent popups offering discounts or incentives to users who show signs of 
-                   leaving   the site.
+       Xvi)  Use Exit-Intent Popups: Deploy exit-intent popups offering discounts or incentives to user
+            who show signs of  leaving   the site.
                 
-              Xvii) Leverage Customer Segmentation: Segment customers by behavior, demographics, and purchasing habits to target 
-                   specific groups with tailored offers and content.
+       Xvii) Leverage Customer Segmentation: Segment customers by behavior, demographics, and purchasing
+             habits to target specific groups with tailored offers and content.
                 
-               Xviii) Simplify Account Creation: Offer users the option to sign up through social media or one-click registration to 
-                     streamline the account creation process.
+       Xviii) Simplify Account Creation: Offer users the option to sign up through social media 
+              or one-click registration to streamline the account creation process.
                 
-               Xix) Run A/B Tests: Continuously A/B test key elements like CTAs, product images, and checkout steps to optimize for 
-                conversions.
+        Xix) Run A/B Tests: Continuously A/B test key elements like CTAs, product images, 
+            and checkout steps to optimize for conversions.
                 
-              XX)  Enhance Retention Strategies: Implement a loyalty program, send personalized follow-up emails, and offer incentives 
-                 for repeat purchases to boost customer retention.
+      XX)  Enhance Retention Strategies: Implement a loyalty program, send personalized
+          follow-up emails, and offer incentives for repeat purchases to boost customer retention.
 
+     
+             
 ### Prpeared BY
 ### Md Rakib Hasan
 ### Marketing Data Analyst
