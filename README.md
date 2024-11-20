@@ -6,8 +6,12 @@ Company: TrendyStyle
 
 Industry: E-commerce (Fashion & Apparel)
 
+
+
 ### Project Focus: 
 Optimizing the website’s conversion rate by analyzing customer behavior, identifying key drop-off points, and implementing data-driven solutions to enhance the user experience.
+
+
 
 ### Tools and Technologies:
 
@@ -19,12 +23,17 @@ Optimizing the website’s conversion rate by analyzing customer behavior, ident
 
        IV) Microsoft Clarity: To analyze user sessions, identify friction points, and optimize the website’s user interface (UI).
 
+       
+
 ### Project Phases & Approach:
+
 
 #### Phase 1: Data Collection & Setup ( Integrate GA4 & Bigquery ):
 
 Configure GA4 to export data into BigQuery for deeper analysis. This allows you to query and analyze granular data, which is not always available directly in GA4.
 Set up automated queries to pull in data such as product views, revenue, and user demographics.
+
+
 
 #### Phase 2: Data Analysis & Insights:
 
@@ -59,6 +68,7 @@ from flat_data;
 ```
 
 Report:
+
 ![Screenshot_4](https://github.com/user-attachments/assets/e804542e-f42f-4473-8c48-886fae5e3dcb)
 
 
@@ -193,11 +203,19 @@ Summary & Insight:
       III) Tablet users have the lowest total sales ($6,582) and AOV ($67.86), indicating a need for optimization.
 
 
+      
+
+
 #### Phase 3: Creating a Looker Studio Dashboard to Track Key Metrics :
 
 To help monitor and visualize the performance of TrendyStyle's e-commerce growth, a Looker Studio dashboard can be set up to track key metrics. Here's how to structure the dashboard and the metrics to include:
 
 ##### Overall Performance Metric Dashboard Screenshot
+
+
+
+
+
 
 #### Phase 4: User Behaviour Data Analysis using Microsoft Clarity :
 
@@ -246,6 +264,11 @@ Insight: Low engagement on the Thank You page with minimal clicks to share on so
 Data: Heatmaps show a lack of interaction with social sharing buttons or post-purchase suggestions.
 
 Recommendation: Add incentives for sharing (discounts for referrals) or encourage users to leave reviews. Offer recommendations for related products or loyalty program sign-ups to increase engagement.
+
+
+
+
+
 
 
 ### Phase 5;: Strategy and Recommendations Base Analysis for Optimizing TrendyStyle's E-Commerce Growth :
