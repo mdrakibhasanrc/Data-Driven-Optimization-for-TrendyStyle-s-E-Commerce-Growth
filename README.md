@@ -220,8 +220,14 @@ Summary & Insight:
 
 To help monitor and visualize the performance of TrendyStyle's e-commerce growth, a Looker Studio dashboard can be set up to track key metrics. Here's how to structure the dashboard and the metrics to include:
 
-##### Overall Performance Metric Dashboard Screenshot
+##### Overall Performance Metric Dashboard Screenshot:
 
+
+![Overview Dashboard](https://github.com/user-attachments/assets/6bdce16e-678a-475c-8740-5dcc11e4d201)
+
+##### Device Metric Dashboard Screenshot:
+
+![Device Analysis](https://github.com/user-attachments/assets/d4373659-c8b5-456d-87c0-f62edfa49db7)
 
 
 
